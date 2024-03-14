@@ -1,57 +1,54 @@
 package miPrincipal;
-//Atributo cabeza apunta al tope de la pila
-public class Pila<T>{
-    private Nodo<T> cabeza;
+
+public class Pila <T>{
+    //Atrivuto cabeza apunta al tope de la pila
+    private Nodo<T>cabeza;
     //Almacena el total de elementos de la pila
     private int tamanio;
-    //constructor de defecto
+    //Constructor por defecto
     public Pila(){
         cabeza = null;
         tamanio = 0;
     }
-    //Devuelve el total de elementos de la pila
+    //Métodos get
     public int getTamanio(){
         return tamanio;
     }
-    //Verifica si la pila esta vacia
-    Public  esVacia(){
+    //Métodos de isntancia
+    public boolean esVacia(){
         return (cabeza == null);
-    }
-    public void apilar (T valor){
-    //Crear un nuevo modo
-    Nodo<T> nuevo = new Nodo<T>();
+    }   
+    public void apilar(T valor){
+        //Crear un nuevo nodo
+        Nodo<T> nuevo = new Nodo<T>();
+        //Fijar el valor dentro del nodo
         nuevo.setValor(valor);
         if(esVacia()){
-            //cabeza apunta el nuevo modo
-            cabeza =nuevo;
-        
+            //La cabeza apunta al nuevo nodo
+            cabeza = nuevo;
         }else{
-            //se enlaza el campo siguiente de nuevo con la cabeza
+            //Se enlaza el campo siguiente de nuevo con la cabeza
             nuevo.setSiguiente(cabeza);
-            //la nueva cabeza de la pila pasa a ser nuevo 
+            //La nueva cabeza de la pila pasa a ser nuevo
             cabeza = nuevo;
         }
-        //Incrementar el tamaño porque hay un nuevo elemento en lapila
+        //Incremetar el tamaño porque hay un nuevo elemento en la pila
         tamanio++;
-    
     }
     //Eliminar un elemento de la pila
     public void retirar(){
         if(!esVacia()){
             cabeza = cabeza.getSiguiente();
-            tamanio --;
+            tamanio--;
         }
-        
     }
     //Devuelve el elemento almacenado en el tope de la cima
     public T cima(){
-        if ( esVacia()){
-            return cabeza get.valor();
+        if(!esVacia()){
+            return cabeza.getValor();
         }else{
             return null;
         }
+    }
 
-        
-    
-    }
-    }
+}
